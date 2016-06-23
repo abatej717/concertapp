@@ -184,3 +184,16 @@ img{
 	font-size: 200pt;
 	color: grey;
 }
+
+.ui-datepicker-calendar tr td{
+	border: 1px solid white;
+}
+
+#infoBox{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	z-index: 1000;
+	display: none;
+}

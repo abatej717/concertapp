@@ -45,16 +45,61 @@
 
 </br>
 </br>
-
+<div id = "infoBox"></div>
 <div class="new">
+
 <div id="calendar"></div>
 <script>
-    $('#calendar').datepicker({
+
+$(document).ready(function(){
+
+  var mX, mY;
+
+
+  $('#calendar').datepicker({
         inline: true,
         firstDay: 1,
         showOtherMonths: true,
         dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     });
+
+ 
+      
+
+    function addClick(){
+       $('.ui-datepicker-calendar tr td').on('click', function( e ){
+         $("#infoBox").hide()
+          console.log("click")
+          console.log( )
+
+           mX =  e.clientX;
+           mY = e.clientY;
+
+           $("#infoBox").css("left",mX);
+           $("#infoBox").css("top",mY);
+
+            $("#infoBox").fadeIn()
+            
+
+
+        console.log($(this).children().html())
+        console.log($(".ui-datepicker-month").html())
+        console.log($(".ui-datepicker-year").html())
+
+        addClick();
+      })
+
+    }
+
+    addClick();
+
+
+   
+   
+})
+    
+
+
 </script>
 </div>
 
