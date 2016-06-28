@@ -32,15 +32,47 @@
 <h1> CONCERT CALENDAR APP </h1>
 
 
+<div class ="input">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-6"></div>
+          <form id="todoForm" action="processData.php" method="post">
+            <input type="text" class="form-control" placeholder="NAME" id="concertInput" name="concertInput">
+            <div class="col-md-5"></div>
+        <div class="col-md-6"> </div>
+          <form id="todoForm" action="processData.php" method="post">
+            <input type="text" class="form-control" placeholder="TIME" id="concertInput" name="concertInput">
+            <div class="col-md-5"></div>
+        <div class="col-md-6"></div>
+          <form id="todoForm" action="processData.php" method="post">
+            <input type="text" class="form-control" placeholder="LOCATION" id="concertInput" name="concertInput">
+
+            <button type="button" class="btn btn-success" id="actionBtn">Put In Calendar</button>
+          </form>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul id="taskList">
+          </div>
+
+          </br>
+          </br>
+
+
 
     <div class="banner">
-      <img src="https://i.ytimg.com/vi/2UzQsyoOkzQ/maxresdefault.jpg">
-      
+
       <img src="http://az616578.vo.msecnd.net/files/2016/04/11/6359600535823189191885179286_concert-festival-crowd.jpg">
-    
-      <img src="http://az616578.vo.msecnd.net/files/2016/04/29/6359754239564328591857050434_scene-light-hands-concert.jpg">
-    
+
+       <img src="https://i.ytimg.com/vi/2UzQsyoOkzQ/maxresdefault.jpg">
+
     </div>
+
+     
+    
 
 
 </br>
@@ -92,22 +124,29 @@ $(document).ready(function(){
     }
 
     addClick();
-
-
-   
    
 })
     
-
-
 </script>
 </div>
 
+<script>
+$(document).ready( function(){
+  $.get("https://app.ticketmaster.com/discovery/v1/events.json?apikey=LQ7g7xrjmwPzijGO0DbtTPNo7cTzFfeI").done( function( data ){
+​
+    console.log( data )
+  })
+})
+</script>
 
 
 
 
 
+
+    
+    
+   
 
 
 </body>

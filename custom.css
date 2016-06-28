@@ -26,7 +26,7 @@ img{
 	position: absolute;
 	left: 670px;
 	top: 270px;
-	font-size: 22pt;
+	font-size: 20pt;
 	color: grey;
 
 }
@@ -169,7 +169,7 @@ img{
 }
 .ui-datepicker-calendar .ui-state-active {
     color: white;
-    border: 1px solid blue;
+    border: 1px solid red;
 }
  
 .ui-datepicker-other-month .ui-state-default { color: grey; }
@@ -196,4 +196,11 @@ img{
 	background-color: white;
 	z-index: 1000;
 	display: none;
+}
+
+.container{
+	left: 700px;
+	top: 300px;
+	
+
 }
