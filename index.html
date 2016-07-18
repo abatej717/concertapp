@@ -18,7 +18,9 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="custom.css"/>
+
 
 	<script src="js/moment.js"></script>
 
@@ -38,17 +40,18 @@
         <div class="col-md-5"></div>
         <div class="col-md-6"></div>
           <form id="todoForm" action="processData.php" method="post">
-            <input type="text" class="form-control" placeholder="NAME" id="concertInput" name="concertInput">
+            <input type="text" class="form-control" placeholder="BAND NAME" id="concertBand" name="concertInput">
             <div class="col-md-5"></div>
         <div class="col-md-6"> </div>
           <form id="todoForm" action="processData.php" method="post">
-            <input type="text" class="form-control" placeholder="TIME" id="concertInput" name="concertInput">
+            <input type="text" class="form-control" placeholder="TIME" id="concertTime" name="concertInput">
             <div class="col-md-5"></div>
         <div class="col-md-6"></div>
           <form id="todoForm" action="processData.php" method="post">
-            <input type="text" class="form-control" placeholder="LOCATION" id="concertInput" name="concertInput">
+            <input type="text" class="form-control" placeholder="LOCATION" id="concertLoc" name="concertInput">
 
-            <button type="button" class="btn btn-success" id="actionBtn">Put In Calendar</button>
+
+            <button type="button" class="btn btn-success" id="actionBtn">PUT IN CALENDAR</button>
           </form>
         </div>
         <div class="col-md-1"></div>
@@ -100,6 +103,8 @@ $(document).ready(function(){
 
     function addClick(){
        $('.ui-datepicker-calendar tr td').on('click', function( e ){
+          $("#todoForm").fadeIn()
+
          $("#infoBox").hide()
           console.log("click")
           console.log( )
@@ -111,6 +116,8 @@ $(document).ready(function(){
            $("#infoBox").css("top",mY);
 
             $("#infoBox").fadeIn()
+
+            $("#infoBox").html("");
             
 
 
@@ -124,19 +131,50 @@ $(document).ready(function(){
     }
 
     addClick();
+
+
+    $("#actionBtn").click(function(){
+      var bandName = $("#concertBand").val()
+      var location = $("#concertLoc").val()
+      var time = $("#concertTime").val()
+
+
+        var details = "<table id = 'details'>";
+        details += "<tr><td> Band:</td><td>"+bandName+"</td></tr>";
+        details += "<tr><td> Time:</td><td>"+time+"</td></tr>";
+        details += "<tr><td> Location:</td><td>"+location+"</td></tr>";
+        details += "</table>";
+      // $("#infoBox").html(bandName, location, time);
+      // $("#infoBox").html(location);
+       $("#infoBox").html(details);
+
+
+
+      $("#infoBox").fadeIn()
+
+      console.log(bandName)
+      console.log(time)
+      console.log(location)
+    
+
+    })
+
    
 })
     
+
+
+
 </script>
 </div>
 
 <script>
-$(document).ready( function(){
-  $.get("https://app.ticketmaster.com/discovery/v1/events.json?apikey=LQ7g7xrjmwPzijGO0DbtTPNo7cTzFfeI").done( function( data ){
-​
-    console.log( data )
-  })
-})
+// $(document).ready( function(){
+//   $.get("https://app.ticketmaster.com/discovery/v1/events.json?apikey=LQ7g7xrjmwPzijGO0DbtTPNo7cTzFfeI").done( function( data ){
+// ​
+//     console.log( data )
+//   })
+// })
 </script>
 
 
